@@ -1030,6 +1030,7 @@ extern "C" {
     #[cfg_attr(target_os = "netbsd", link_name = "__getrusage50")]
     pub fn getrusage(resource: ::c_int, usage: *mut rusage) -> ::c_int;
 
+    #[cfg(not(target_os = "horizon"))]
     #[cfg_attr(
         any(
             target_os = "macos",

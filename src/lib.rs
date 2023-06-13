@@ -103,12 +103,15 @@ cfg_if! {
 
         mod fuchsia;
         pub use fuchsia::*;
-    } else if #[cfg(target_os = "switch")] {
+    } else if #[cfg(target_os = "horizon")] {
         mod fixed_width_ints;
         pub use fixed_width_ints::*;
 
         mod switch;
         pub use switch::*;
+
+        mod unix;
+        pub use unix::*;
     } else if #[cfg(target_os = "psp")] {
         mod fixed_width_ints;
         pub use fixed_width_ints::*;
@@ -155,3 +158,4 @@ cfg_if! {
         // non-supported targets: empty...
     }
 }
+
