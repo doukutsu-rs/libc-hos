@@ -1230,6 +1230,7 @@ extern "C" {
     #[cfg_attr(gnu_time_bits64, link_name = "__getrusage64")]
     pub fn getrusage(resource: c_int, usage: *mut rusage) -> c_int;
 
+    #[cfg(not(target_os = "horizon"))]
     #[cfg_attr(
         any(
             target_os = "macos",

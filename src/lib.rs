@@ -64,12 +64,15 @@ cfg_if! {
         pub use crate::fuchsia::*;
 
         prelude!();
-    } else if #[cfg(target_os = "switch")] {
+    } else if #[cfg(target_os = "horizon")] {
         mod primitives;
         pub use primitives::*;
 
         mod switch;
         pub use switch::*;
+
+        mod unix;
+        pub use unix::*;
 
         prelude!();
     } else if #[cfg(target_os = "psp")] {
